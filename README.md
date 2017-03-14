@@ -3,7 +3,7 @@
 Yleisiä linkkejä:
 
 * [Linkki sovellukseeni](http://vaalisto.users.cs.helsinki.fi/tsoha/)
-* [Linkki dokumentaatiooni](https://github.com/Vaalisto/Tsoha-Bootstrap/doc/dokumentaatio.pdf)
+* [Linkki dokumentaatiooni](/doc/dokumentaatio.pdf)
 
 ## Työn aihe
 
