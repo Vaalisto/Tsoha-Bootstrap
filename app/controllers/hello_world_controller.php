@@ -12,6 +12,10 @@
       View::make('helloworld.html');
     }
 
+    public static function game_list(){
+      View::make('suunnitelmat/game_list.html');
+    }
+
     public static function game_show(){
       View::make('suunnitelmat/game_show.html');
     }
