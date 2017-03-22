@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Muokkaa peliä Scythe</h1>
+
+  <form>    
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" class="form-control" value="Scythe">
+    </div>
+    <div class="form-group">
+      <label>Julkaisuvuosi</label>
+      <input type="text" class="form-control" value="2016">
+    </div>
+    <div class="form-group">
+      <label>Suunnittelija</label>
+      <input type="text" class="form-control" value="Jamey Stegmaier">
+    </div>
+    <div class="form-group">
+      <label>Kuvaus</label>
+      <textarea class="form-control">Scythe on vaihtoehtoiseen historiaan sijoittava peli, jossa pelaajat pyrkivät voittamaan omalla valtiollaan. Pelissä pitää tasapainotella resurssien, taistelun ja aluehallinnan välillä ja kansojen erilaiset ominaisuudet tuovat lisämausteen peliin.
+      </textarea>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Tallenna</button>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox">
+        Strategia
+      </label>
+      <label>
+        <input type="checkbox">
+        Kilpailullinen
+      </label>
+      <label>
+        <input type="checkbox">
+        Vaihtoehtohistoria
+      </label>
+    </div>
+  </form>
+{% endblock %}
