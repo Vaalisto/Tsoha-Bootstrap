@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Tervetuloa Villen lautapelisivustolle</h1>
+  <h1>Tervetuloa Villen lautapelisivustolle</h1>  
 
-  <p>
-    <strong>Pelejä: </strong> 1
-  </p>
-
-  <p>
-    <strong>Käyttäjiä: </strong> 2
-  </p>
-
-  <p>
-    <strong>Genrejä: </strong> 3
-  </p>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="badge">1</span>
+      Pelejä
+    </li>
+    <li class="list-group-item">
+      <span class="badge">2</span>
+      Käyttäjiä
+    </li>
+    <li class="list-group-item">
+      <span class="badge">3</span>
+      Genrejä
+    </li>    
+  </ul>
   
 {% endblock %}
