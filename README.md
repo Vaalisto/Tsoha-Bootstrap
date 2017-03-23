@@ -11,8 +11,8 @@ Työn aiheena on lautapeleihin liittyvä websovellus, johon voidaan tallentaa er
 
 ## Suunnitellut sivut
 
-* [Etusivu](/app/views/suunnitelmat/index.html)
-* [Pelilistaus](/app/views/suunnitelmat/game_list.html)
-* [Pelinäkymä](/app/views/suunnitelmat/game_show.html)
-* [Pelin muokkaussivu](/app/views/suunnitelmat/game_edit.html)
-* [Kirjautuminen](/app/views/suunnitelmat/login.html)
+* [Etusivu](http://vaalisto.users.cs.helsinki.fi/tsoha/etusivu)
+* [Pelilistaus](http://vaalisto.users.cs.helsinki.fi/tsoha/game)
+* [Pelinäkymä](http://vaalisto.users.cs.helsinki.fi/tsoha/game/1)
+* [Pelin muokkaussivu](http://vaalisto.users.cs.helsinki.fi/tsoha/game/1/edit)
+* [Kirjautuminen](http://vaalisto.users.cs.helsinki.fi/tsoha/login)
