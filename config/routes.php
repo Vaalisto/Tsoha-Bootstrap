@@ -13,7 +13,7 @@
   });  
 
   $routes->get('/game', function() {
-    HelloWorldController::game_list();
+    GameController::index();
   });
 
 	$routes->get('/game/1', function() {
@@ -27,7 +27,3 @@
 	$routes->get('/login', function() {
   	HelloWorldController::login();
 	});
-
-  $routes->get('/game', function() {
-    GameController::index();
-  });
