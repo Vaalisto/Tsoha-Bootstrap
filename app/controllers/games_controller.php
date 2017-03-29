@@ -21,9 +21,7 @@
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
 				'description' => $params['description']
-			));
-
-			Kint::dump($params);
+			));			
 
 			$game->save;
 
