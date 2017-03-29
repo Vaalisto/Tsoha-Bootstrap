@@ -23,7 +23,7 @@
 				'description' => $params['description']
 			));			
 
-			$game->save;
+			$game->save();
 
 			Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
 		}
