@@ -27,3 +27,7 @@
 	$routes->get('/login', function() {
   	HelloWorldController::login();
 	});
+
+  $routes->get('/game', function() {
+    GameController::index();
+  });
