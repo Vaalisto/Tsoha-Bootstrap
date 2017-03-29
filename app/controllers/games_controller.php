@@ -9,4 +9,20 @@
 			$game = Game::find($id);
 			View::make('game/show.html', array('game' => $game));
 		}
+
+		public static function store() {
+			$params = $_POST;
+			$game = new Game(array(
+				'gamename' => $params['gamename'],
+				'published_year' => $params['published_year'],
+				'publisher' => $params['publisher'],
+				'description' => $params['description']
+			));
+
+			Kint::dump($params);
+			
+			$game->save;
+
+			Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
+		}
 	}

@@ -43,4 +43,13 @@
 			}
 			return null;
 		}
+
+		public function save(){
+			$query = DB::connection()->prepare('INSERT INTO Game (gamename, published_year, publisher, description, added) VALUES (:gamename, :published_year, :publisher, :description, NOW()) RETURNING id');
+			$query->execute(array('gamename' => $this->gamename, 'published_year' => $this->published_year, 'publisher' => $this->publisher, 'description'));
+			$row = $query->fetch();
+			Kint::trace();
+			Kint::dump($row);
+			$this->id = $row['id'];
+		}
 	}
