@@ -1,7 +1,7 @@
 <?php
 
   $routes->get('/', function() {
-    HelloWorldController::index();
+    GameController::index();
   });
 
   $routes->get('/hiekkalaatikko', function() {
@@ -16,13 +16,15 @@
     GameController::index();
   });
 
-	$routes->get('/game/1', function() {
-  	HelloWorldController::game_show();
+	$routes->get('/game/:id', function($id) {
+  	GameController::show($id);
 	});
 
 	$routes->get('/game/1/edit', function() {
   HelloWorldController::game_edit();
   });
+
+
 
 	$routes->get('/login', function() {
   	HelloWorldController::login();
