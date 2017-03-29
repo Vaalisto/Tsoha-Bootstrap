@@ -17,7 +17,7 @@
     GameController::store();
   });
 
-  $routes->get('game/new', function(){
+  $routes->get('/game/new', function(){
     GameController::create();
   });
 
