@@ -9,8 +9,10 @@
     }
 
     public static function sandbox(){
-      // Testaa koodiasi täällä
-      View::make('helloworld.html');
+      $scythe = Game::find(1);
+      $games = Game::all();
+      Kint::dump($games);
+      Kint::dump($scythe);
     }
 
     public static function etusivu(){
@@ -33,10 +35,4 @@
       View::make('suunnitelmat/login.html');
     }
 
-    public static function sandbox(){
-      $scythe = Game::find(1);
-      $games = Game::all();
-      Kint::dump($games);
-      Kint::dump($scythe);
-    }
   }
