@@ -1,6 +1,5 @@
 <?php
-
-  require 'app/models/game.php';
+  
   class HelloWorldController extends BaseController{
 
     public static function index(){
