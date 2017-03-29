@@ -5,14 +5,14 @@
 			View::make('game/index.html', array('games' => $games));
 		}
 
-		public static function show($id){
-			$game = Game::find($id);
-			View::make('game/show.html', array('game' => $game));
-		}
-
 		public static function create(){
 			View::make('game/new.html');
 		}
+
+		public static function show($id){
+			$game = Game::find($id);
+			View::make('game/show.html', array('game' => $game));
+		}		
 
 		public static function store() {
 			$params = $_POST;

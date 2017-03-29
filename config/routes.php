@@ -6,8 +6,9 @@
 
   $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
-  });   
+  });
 
+  ## Game
   $routes->get('/game', function() {
     GameController::index();
   });		
