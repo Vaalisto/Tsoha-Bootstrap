@@ -1,5 +1,6 @@
 <?php
 
+  require 'app/models/game.php';
   class HelloWorldController extends BaseController{
 
     public static function index(){
@@ -30,5 +31,12 @@
 
     public static function login(){
       View::make('suunnitelmat/login.html');
+    }
+
+    public static function sandbox(){
+      $scythe = Game::find(1);
+      $games = Game::all();
+      Kint::dump($games);
+      Kint::dump($scythe);
     }
   }
