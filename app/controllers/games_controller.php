@@ -10,6 +10,10 @@
 			View::make('game/show.html', array('game' => $game));
 		}
 
+		public static function create(){
+			View::make('game/new.html');
+		}
+
 		public static function store() {
 			$params = $_POST;
 			$game = new Game(array(
@@ -20,7 +24,7 @@
 			));
 
 			Kint::dump($params);
-			
+
 			$game->save;
 
 			Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
