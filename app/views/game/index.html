@@ -5,19 +5,23 @@
   <p>
     <a href="{{base_path}}/game/new" class="btn btn-success"><span class="glyphicon glyphicon-plus aria-hidden="true"></span>Lisää peli</a>
   </p>
-
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Nimi</th>        
+        <th>Nimi</th>
+        <th>Julkaisuvuosi</th>
+        <th>Julkaisija</th>               
+        <th>Lisäyspäivä</th>
         <th></th>
       </tr>
     </thead>
-
     <tbody>
-      {% for genre in genres %}
+      {% for game in games %}
       <tr>
-        <td><a href="{{base_path}}/genre/{{genre.id}}">{{genre.genrename}}</a></td>        
+        <td><a href="{{base_path}}/game/{{game.id}}">{{game.gamename}}</a></td>
+        <td>{{game.published_year}}</td>
+        <td>{{game.publisher}}</td>        
+        <td>{{game.added}}</td>
         <th><a class="btn btn-default btn-sm" href="{{base_path}}/game/{{game.id}}/edit">Muokkaa</a></th>
       </tr>
       {% endfor %}

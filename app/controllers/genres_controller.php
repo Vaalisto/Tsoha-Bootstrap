@@ -16,7 +16,7 @@
 
 		public static function store() {
 			$params = $_POST;
-			$genre = new genre(array(
+			$genre = new Genre(array(
 				'genrename' => $params['genrename'],				
 				'description' => $params['description']
 			));			
