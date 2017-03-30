@@ -39,4 +39,5 @@
   });
 
   $routes->get('/genre/:id', function($id) {
-    GenreController::show($id); 
+    GenreController::show($id);
+  });
