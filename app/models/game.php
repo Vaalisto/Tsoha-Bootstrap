@@ -8,22 +8,22 @@
 		}
 
 		public function validate_name(){
-			$errors = parent::validate_string($this->gamename, 2, 120);
+			$errors = parent::validate_string("Nimi", $this->gamename, 2, 120);
 			return $errors;
 		}
 
 		public function validate_published_year(){
-			$errors = parent::validate_integer($this->published_year);
+			$errors = parent::validate_integer("Julkaisuvuosi", $this->published_year);
 			return $errors;
 		}
 
 		public function validate_publisher(){
-			$errors = parent::validate_string($this->publisher, 0, 120);
+			$errors = parent::validate_string("Julkaisija", $this->publisher, 0, 120);
 			return $errors;
 		}
 
 		public function validate_description(){
-			$errors = parent::validate_string($this->description, 2, 500);
+			$errors = parent::validate_string("Kuvaus", $this->description, 2, 500);
 			return $errors;
 		}
 

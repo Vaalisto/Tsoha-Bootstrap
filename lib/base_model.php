@@ -15,24 +15,24 @@
       }
     }
 
-    public function validate_string($string, $min, $max){
+    public function validate_string($field, $string, $min, $max){
       $errors = array();
       if(!is_string($string)){
-        $errors[] = "On oltava merkkijono.";
+        $errors[] = $field . "on oltava merkkijono.";
       }
       if(strlen($string) < $min && $min != 0){
-        $errors[] = "Minimipituus on " . $min . " merkkiä.";
+        $errors[] = $field . " minimipituus on " . $min . " merkkiä.";
       }
       if(strlen($string) > $max && $max != 0){
-        $errors[] = "Maksimipituus on " . $max . " merkkiä.";
+        $errors[] = $field . " maksimipituus on " . $max . " merkkiä.";
       }
       return $errors;
     }
 
-    public function validate_integer($integer){
+    public function validate_integer($field, $integer){
       $errors = array();
       if(!is_int($integer)){
-        $errors[] = "On oltava kokonaisluku.";
+        $errors[] = $field . " on oltava kokonaisluku.";
       }
       return $errors;
     }
