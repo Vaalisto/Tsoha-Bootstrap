@@ -16,13 +16,21 @@
 
 		public static function store() {
 			$params = $_POST;
-			$genre = new Genre(array(
+			$attributes = array(
 				'genrename' => $params['genrename'],				
 				'description' => $params['description']
-			));			
+			);
 
-			$genre->save();
+			$game = new Game($attributes);
+			$errors = $game->errors();
+			if(count($errors) == 0){
+				$genre->save();
 
-			Redirect::to('/genre/' . $genre->id, array('message' => 'Genre on lisätty'));
+				Redirect::to('/genre/' . $genre->id, array('message' => 'Genre on lisätty'));
+			}else{
+				View::make('genre/new.html', array('errors' => $errors, 'attributes' => $attributes));
+			}
+
+			
 		}
 	}

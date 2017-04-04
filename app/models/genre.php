@@ -4,6 +4,17 @@
 
 		public function __construct($attributes){
 			parent::__construct($attributes);
+			$this->validators = array('validate_name', "validate_description");
+		}
+
+		public function validate_name(){
+			$errors = parent::validate_string("Nimi", $this->genrename, 2, 30);
+			return $errors;
+		}
+
+		public function validate_description(){
+			$errors = parent::validate_string("Kuvaus", $this->description, 2, 300);
+			return $errors;
 		}
 
 		public static function all(){
