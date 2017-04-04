@@ -16,15 +16,22 @@
 
 		public static function store() {
 			$params = $_POST;
-			$game = new Game(array(
+			$attributes = array(
 				'gamename' => $params['gamename'],
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
 				'description' => $params['description']
-			));			
+			);			
 
-			$game->save();
+			$game = new Game($attributes);
+			$errors = $game->errors();
+			if(count($errors) == 0){
+				$game->save();
 
-			Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
+				Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
+			}else{
+				View::make('game/new.html', array('errors' => $errors, 'attributes' => $attributes));
+			}
+			
 		}
 	}
