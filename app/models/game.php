@@ -4,7 +4,30 @@
 
 		public function __construct($attributes){
 			parent::__construct($attributes);
+			$this->validators = array('validate_name', 'validate_published_year', 'validate_publisher', 'validate_description');
 		}
+
+		public function validate_name(){
+			$errors = parent::validate_string($this->gamename, 2, 120);
+			return $errors;
+		}
+
+		public function validate_published_year(){
+			$errors = parent::validate_integer($this->published_year);
+			return $errors;
+		}
+
+		public function validate_publisher(){
+			$errors = parent::validate_string($this->publisher, 0, 120);
+			return $errors;
+		}
+
+		public function validate_description(){
+			$errors = parent::validate_string($this->description, 2, 500);
+			return $errors;
+		}
+
+
 
 		public static function all(){
 			$query = DB::connection()->prepare('SELECT * FROM Game');

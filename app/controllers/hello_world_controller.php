@@ -8,10 +8,15 @@
     }
 
     public static function sandbox(){
-      $scythe = Game::find(1);
-      $games = Game::all();
-      Kint::dump($games);
-      Kint::dump($scythe);
+      $scythe = new Game(array(
+        'gamename' => 's',
+        'published_year' => 'ens vuoden keskiviikkona',
+        'publisher' => 'mutsis',
+        'description' => 'Oispa peliä'
+      ));
+      $errors = $scythe->errors();
+
+      Kint::dump($errors);
     }
 
     public static function etusivu(){

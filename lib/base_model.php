@@ -29,6 +29,14 @@
       return $errors;
     }
 
+    public function validate_integer($integer){
+      $errors = array();
+      if(!is_int($integer)){
+        $errors[] = "On oltava kokonaisluku."
+      }
+      return $errors;
+    }
+
     public function errors(){
       // Lisätään $errors muuttujaan kaikki virheilmoitukset taulukkona
       $errors = array();
