@@ -32,7 +32,7 @@
     public function validate_integer($integer){
       $errors = array();
       if(!is_int($integer)){
-        $errors[] = "On oltava kokonaisluku."
+        $errors[] = "On oltava kokonaisluku.";
       }
       return $errors;
     }
