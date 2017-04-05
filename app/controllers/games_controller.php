@@ -57,7 +57,7 @@
 				$game->update();
 				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
 			}else{
-				View::make('game/edit.html', rray('errors' => $errors, 'attributes' => $attributes));
+				View::make('game/edit.html', array('errors' => $errors, 'attributes' => $attributes));
 			}
 
 
