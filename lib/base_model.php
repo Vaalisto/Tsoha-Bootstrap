@@ -31,7 +31,7 @@
 
     public function validate_integer($field, $integer){
       $errors = array();
-      if(!is_int($integer)){
+      if(!is_numeric($integer)){
         $errors[] = $field . " on oltava kokonaisluku.";
       }
       return $errors;
