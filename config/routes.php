@@ -66,3 +66,12 @@
   $routes->post('/genre/:id/destroy', function($id){
     GenreController::destroy($id);
   });
+
+  #Account
+  $routes->get('/login', function(){
+    AccountController::login();
+  });
+
+  $routes->post('/login', function(){
+    AccountContoller::handle_login();
+  })
