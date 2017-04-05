@@ -41,7 +41,7 @@
 		}
 
 		public static function authenticate($accountname, $password){
-			$query = DB::connection()-prepare('SELECT * FROM Account WHERE accountname = :accountname AND password = :password LIMIT 1');
+			$query = DB::connection()->prepare('SELECT * FROM Account WHERE accountname = :accountname AND password = :password LIMIT 1');
 			$query->execute(array('accountname' => $accountname, 'password' => $password));
 			$row = $query->fetch();
 			if($row){
