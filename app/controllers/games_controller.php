@@ -45,7 +45,7 @@
 			$params = $_POST;
 
 			$attributes = array(
-				'id' => $params['id'],
+				'id' => $id,
 				'gamename' => $params['gamename'],
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],

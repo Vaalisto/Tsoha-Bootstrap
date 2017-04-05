@@ -42,7 +42,7 @@
 		public static function update($id) {
 			$params = $_POST;
 			$attributes = array(
-				'id' => $params['id'],
+				'id' => $id,
 				'genrename' => $params['genrename'],				
 				'description' => $params['description']
 			);
