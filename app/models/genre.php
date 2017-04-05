@@ -58,7 +58,7 @@
 
 		public function update(){
 			$query = DB::connection()->prepare('UPDATE Genre SET genrename = :genrename, description = :description WHERE id = :id');
-			$query->execute(array('genrename' => $this->genrename, 'description' => $this->description, 'id' => $this->id));			
+			return $query->execute(array('genrename' => $this->genrename, 'description' => $this->description, 'id' => $this->id));			
 		}
 
 		public function destroy(){
