@@ -59,7 +59,7 @@
 			
 		}
 
-		publis static function destroy($id){
+		public static function destroy($id){
 			$genre = new Genre(array('id' => $id));
 			$genre->destroy();
 
