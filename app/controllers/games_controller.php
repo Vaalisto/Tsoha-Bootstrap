@@ -63,7 +63,7 @@
 
 		}
 
-		publis static function destroy($id){
+		public static function destroy($id){
 			$game = new Game(array('id' => $id));
 			$game->destroy();
 
