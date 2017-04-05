@@ -25,15 +25,15 @@
     GameController::show($id);
   });
 
-  $routes->get('/game/:id/edit', function($id)){
+  $routes->get('/game/:id/edit', function($id){
     GameController::edit($id);
   });
 
-  $routes->post('/game/:id/edit', function($id)){
+  $routes->post('/game/:id/edit', function($id){
     GameController::update($id);
   });
 
-  $routes->post('/game/:id/destroy', function($id)){
+  $routes->post('/game/:id/destroy', function($id){
     GameController::destroy($id);
   });
 
@@ -55,14 +55,14 @@
     GenreController::show($id);
   });
 
-  $routes->get('/genre/:id/edit', function($id)){
+  $routes->get('/genre/:id/edit', function($id){
     GenreController::edit($id);
   });
 
-  $routes->post('/genre/:id/edit', function($id)){
+  $routes->post('/genre/:id/edit', function($id){
     GenreController::update($id);
   });
 
-  $routes->post('/genre/:id/destroy', function($id)){
+  $routes->post('/genre/:id/destroy', function($id){
     GenreController::destroy($id);
   });
