@@ -12,25 +12,25 @@
     </div>
   {% endif %}
 
-  <form method="post" action="{{base_path}}/game/{{game.id}}/edit">
+  <form method="post" action="{{base_path}}/game/{{attributes.id}}/edit">
     <div class="form-group">
       <label>Nimi</label>
-      <input type="text" name="gamename" class="form-control" value="{{game.gamename}}">
+      <input type="text" name="gamename" class="form-control" value="{{attributes.gamename}}">
     </div>
 
     <div class="form-group">
       <label>Julkaisuvuosi</label>
-      <input type="text" name="published_year" class="form-control" value="{{game.published_year}}">
+      <input type="text" name="published_year" class="form-control" value="{{attributes.published_year}}">
     </div>
 
     <div class="form-group">
       <label>Julkaisija</label>
-      <input type="text" name="publisher" class="form-control" value="{{game.publisher}}">
+      <input type="text" name="publisher" class="form-control" value="{{attributes.publisher}}">
     </div>    
 
     <div class="form-group">
       <label>Kuvaus</label>
-      <textarea name="description" class="form-control" value="{{game.description}}"></textarea>
+      <textarea name="description" class="form-control" value="{{attributes.description}}"></textarea>
     </div>
 
     <div class="form-group">
