@@ -73,5 +73,5 @@
   });
 
   $routes->post('/login', function(){
-    AccountContoller::handle_login();
+    AccountController::handle_login();
   });
