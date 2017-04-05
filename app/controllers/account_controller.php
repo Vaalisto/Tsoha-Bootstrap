@@ -14,7 +14,7 @@
       }else{
         $_SESSION['account'] = $account->id;
 
-        Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $account->name . '!'));
+        Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $account->accountname . '!'));
       }
     }
   }
