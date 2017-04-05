@@ -55,4 +55,14 @@
 			$row = $query->fetch();			
 			$this->id = $row['id'];
 		}
+
+		public function update(){
+			$query = DB::connection()->prepare('UPDATE Genre SET genrename = :genrename, description = :description WHERE id = :id');
+			$query->execute(array('genrename' => $this->genrename, 'description' => $this->description, 'id' => $this->id));			
+		}
+
+		public function destroy(){
+			$query = DB::connection()->prepare('DELETE FROM Genre WHERE id = :id');
+			$query->execute(array('id' => $this->id));
+		}
 	}

@@ -12,7 +12,12 @@
 		public static function show($id){
 			$game = Game::find($id);
 			View::make('game/show.html', array('game' => $game));
-		}		
+		}
+
+		public static function edit($id){
+			$game = Game::find($id);
+			View::make('game/edit.html', array('attributes' => $game));
+		}
 
 		public static function store() {
 			$params = $_POST;
@@ -21,7 +26,8 @@
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
 				'description' => $params['description']
-			);			
+			);
+
 
 			$game = new Game($attributes);
 			$errors = $game->errors();
@@ -33,5 +39,34 @@
 				View::make('game/new.html', array('errors' => $errors, 'attributes' => $attributes));
 			}
 			
+		}
+
+		public static function update($id){
+			$params = $_POST;
+
+			$attributes = array(
+				'gamename' => $params['gamename'],
+				'published_year' => $params['published_year'],
+				'publisher' => $params['publisher'],
+				'description' => $params['description']
+			);
+
+			$game = new Game($attributes);
+			$errors = $game->errors();
+			if(count($errors) == 0){
+				$game->update();
+				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
+			}else{
+				View::make('game/edit.html', rray('errors' => $errors, 'attributes' => $attributes));
+			}
+
+
+		}
+
+		publis static function destroy($id){
+			$game = new Game(array('id' => $id));
+			$game->destroy();
+
+			Redirect::to('/game', array('message' => 'Peli on poistettu onnistuneesti.'));
 		}
 	}

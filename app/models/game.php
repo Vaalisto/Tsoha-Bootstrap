@@ -73,4 +73,14 @@
 			$row = $query->fetch();			
 			$this->id = $row['id'];
 		}
+
+		public function update(){
+			$query = DB::connection()->prepare('UPDATE Game SET gamename = :gamename, published_year = :published_year, publisher = :publisher, description = :description WHERE id = :id');
+			$query->execute(array('gamename' => $this->gamename, 'published_year' => $this->published_year, 'publisher' => $this->publisher, 'description' => $this->description, 'id' => $this->id));
+		}
+
+		public function destroy(){
+			$query = DB::connection()->prepare('DELETE FROM Game WHERE id = :id');
+			$query->execute(array('id' => $this->id));
+		}
 	}

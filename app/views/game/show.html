@@ -3,7 +3,7 @@
   <h1>{{game.gamename}}</h1>
   <!-- Painikkeet tähän -->
   <p>
-    <a href="#" class="btn btn-danger"><span class="glyphicon glyphicon-remove aria-hidden="true"></span>Poista</a> 
+    <a href="{{base_path}}/game/{{game.id}}/destroy" class="btn btn-danger"><span class="glyphicon glyphicon-remove aria-hidden="true"></span>Poista</a> 
     <a href="{{base_path}}/game/{{game.id}}/edit" class="btn btn-default"><span class="glyphicon glyphicon-cog aria-hidden="true"></span>Muokkaa</a>
   </p>
   <!-- Tiedot tulee listana tähän -->

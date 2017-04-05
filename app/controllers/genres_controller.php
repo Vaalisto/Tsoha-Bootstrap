@@ -12,7 +12,12 @@
 		public static function show($id){
 			$genre = Genre::find($id);
 			View::make('genre/show.html', array('genre' => $genre));
-		}		
+		}
+
+		public static function edit($id){
+			$genre = Genre::find($id);
+			View::make('genre/edit.html', array('attributes' => $genre));
+		}
 
 		public static function store() {
 			$params = $_POST;
@@ -21,8 +26,8 @@
 				'description' => $params['description']
 			);
 
-			$game = new Game($attributes);
-			$errors = $game->errors();
+			$genre = new Genre($attributes);
+			$errors = $genre->errors();
 			if(count($errors) == 0){
 				$genre->save();
 
@@ -33,4 +38,32 @@
 
 			
 		}
+
+		public static function update($id) {
+			$params = $_POST;
+			$attributes = array(
+				'genrename' => $params['genrename'],				
+				'description' => $params['description']
+			);
+
+			$genre = new Genre($attributes);
+			$errors = $genre->errors();
+			if(count($errors) == 0){
+				$genre->update();
+
+				Redirect::to('/genre/' . $genre->id, array('message' => 'Genreä muokattu onnistuneesti.'));
+			}else{
+				View::make('genre/edit.html', array('errors' => $errors, 'attributes' => $attributes));
+			}
+
+			
+		}
+
+		publis static function destroy($id){
+			$genre = new Genre(array('id' => $id));
+			$genre->destroy();
+
+			Redirect::to('/genre', array('message' => 'Genre poistettu onnistuneesti.'));
+		}
+		
 	}
