@@ -1,0 +1,9 @@
+{% macro destroy_button(action, text) %}
+	<form method="post" action="{{action}}" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-remove aria-hidden="true"></span> {{text|default('Poista')}}</button>
+  </form>
+{% endmacro %}
+
+{% macro edit_button(href, text %}
+	<a href="{{href}}" class="btn btn-default"><span class="glyphicon glyphicon-cog aria-hidden="true"></span> {{text|default('Muokkaa')}}</a>
+{% endmacro %}
