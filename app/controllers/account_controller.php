@@ -18,7 +18,7 @@
       }
     }
 
-    public static function log_out(){
+    public static function logout(){
       $_SESSION['account'] = null;
       Redirect::to('/', array('message' => 'Olet kirjautunut ulos!'));
     }
