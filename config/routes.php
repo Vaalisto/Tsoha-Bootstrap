@@ -75,3 +75,7 @@
   $routes->post('/login', function(){
     AccountController::handle_login();
   });
+
+  $routes->get('/logout', function(){
+    AccountController::logout();
+  });

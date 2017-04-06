@@ -17,4 +17,9 @@
         Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $account->accountname . '!'));
       }
     }
+
+    public static function log_out(){
+      $_SESSION['account'] = null;
+      Redirect::to('/', array('message' => 'Olet kirjautunut ulos!'));
+    }
   }
