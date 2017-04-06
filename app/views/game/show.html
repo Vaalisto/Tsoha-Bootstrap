@@ -3,10 +3,12 @@
 {% import "macros/forms.html" as forms %}
   <h1>{{game.gamename}}</h1>
   <!-- Painikkeet tähän -->
+  {% if user_logged_in %}
   <p>
     {{forms.destroy_button("#{base_path}/game/#{game.id}/destroy")}} 
     {{forms.edit_button("#{base_path}/game/#{game.id}/edit")}}
   </p>
+  {% endif %}
   <!-- Tiedot tulee listana tähän -->
   <ul>
     <li><strong>Julkaisuvuosi:</strong> {{game.published_year}}</li>

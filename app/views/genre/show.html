@@ -3,10 +3,12 @@
 {% import "macros/forms.html" as forms %}
   <h1>{{genre.genrename}}</h1>
   <!-- Painikkeet tähän -->
+  {% if user_logged_in %}
   <p>
     {{forms.destroy_button("#{base_path}/genre/#{genre.id}/destroy")}} 
     {{forms.edit_button("#{base_path}/genre/#{genre.id}/edit")}}
   </p>  
+  {% endif %}   
   <!-- Kuvaus tulee tähän -->
   <p>
     <div class="well">
