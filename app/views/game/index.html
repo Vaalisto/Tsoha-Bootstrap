@@ -22,7 +22,9 @@
         <th>Julkaisuvuosi</th>
         <th>Julkaisija</th>               
         <th>Lisäyspäivä</th>
-        <th></th>
+        {% if user_logged_in %}
+          <th></th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -32,9 +34,11 @@
         <td>{{game.published_year}}</td>
         <td>{{game.publisher}}</td>        
         <td>{{game.added}}</td>
-        <th>{% if user_logged_in %}
-        <a class="btn btn-default btn-sm" href="{{base_path}}/game/{{game.id}}/edit">Muokkaa</a>
-        {% endif %}</th>
+        {% if user_logged_in %}
+          <th>
+          <a class="btn btn-default btn-sm" href="{{base_path}}/game/{{game.id}}/edit">Muokkaa</a>
+          </th>
+        {% endif %}
       </tr>
       {% endfor %}
     </tbody>
