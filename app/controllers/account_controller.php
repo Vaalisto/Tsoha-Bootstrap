@@ -10,7 +10,7 @@
       $account = Account::authenticate($params['accountname'], $params['password']);
 
       if(!$account){
-        View::make('login.html', array('error' => 'Väärä käyttäjätunnus tai salasana!', 'accountname' => $params['accountname']));
+        View::make('login.html', array('errors' => 'Väärä käyttäjätunnus tai salasana!', 'accountname' => $params['accountname']));
       }else{
         $_SESSION['account'] = $account->id;
 
