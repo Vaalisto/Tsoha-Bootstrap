@@ -44,7 +44,7 @@
             <li><a href="#">Käyttäjät</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          {% if user_logged_in%}
+          {% if get_user_logged_in %}
             <li>Kirjauduttu sisään</li>
           {% else %}
             <li><a href="{{base_path}}/login">Kirjaudu sisään</a></li>
