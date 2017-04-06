@@ -26,7 +26,8 @@
 				$account = new Account(array(
 								'id' => $row['id'],
 								'accountname' => $row['accountname'],
-								'password' => $row['password']
+								'password' => $row['password'],
+								'is_admin' => $row['is_admin']
 				));
 				return $account;
 			}
@@ -48,7 +49,8 @@
 				$account = new Account(array(
 								'id' => $row['id'],
 								'accountname' => $row['accountname'],
-								'password' => $row['password']
+								'password' => $row['password'],
+								'is_admin' => $row['is_admin']
 				));
 				return $account;
 			}
