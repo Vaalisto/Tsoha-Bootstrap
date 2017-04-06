@@ -2,7 +2,7 @@
 
   class BaseController{
 
-    public static function get_account_logged_in(){
+    public static function get_user_logged_in(){
       if(isset($_SESSION['account'])){
         $account_id = $_SESSION['account'];
         $account = Account::find($account_id);
