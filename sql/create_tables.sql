@@ -30,6 +30,5 @@ CREATE TABLE Genre(
 
 CREATE TABLE Gamegenre(
 	game_id INTEGER REFERENCES Game(id) ON DELETE CASCADE,
-	genre_id INTEGER REFERENCES Genre(id) ON DELETE CASCADE,
-	PRIMARY KEY (game_id, genre_id)
+	genre_id INTEGER REFERENCES Genre(id) ON DELETE CASCADE	
 );
