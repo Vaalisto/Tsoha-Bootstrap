@@ -79,3 +79,12 @@
   $routes->get('/logout', function(){
     AccountController::logout();
   });
+
+  #Rating
+  $routes->post('/rating', function()){
+    RatingController::store();  
+  });
+
+  $routes->get('/rating/new', function(){
+    RatingController::create();
+  });

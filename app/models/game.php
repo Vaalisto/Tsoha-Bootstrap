@@ -67,16 +67,36 @@
 			return null;
 		}
 
+		public static function average_score($id){
+			$query = DB::connection()->prepare('SELECT AVG(rate) AS average FROM Rating WHERE game_id = :id');
+			$query->execute(array('id' => $this->id));
+			$avg = $query->fetch();
+
+			if($avg){
+				return $avg['average'];
+			}else{
+				return null;
+			}
+		}
+
 		public function save(){
 			$query = DB::connection()->prepare('INSERT INTO Game (gamename, published_year, publisher, description, added) VALUES (:gamename, :published_year, :publisher, :description, NOW()) RETURNING id');
-			$query->execute(array('gamename' => $this->gamename, 'published_year' => $this->published_year, 'publisher' => $this->publisher, 'description' => $this->description));
+			$query->execute(array('gamename' => $this->gamename,
+														'published_year' => $this->published_year,
+													 	'publisher' => $this->publisher,
+													 	'description' => $this->description
+													 	));
 			$row = $query->fetch();			
 			$this->id = $row['id'];
 		}
 
 		public function update(){
 			$query = DB::connection()->prepare('UPDATE Game SET gamename = :gamename, published_year = :published_year, publisher = :publisher, description = :description WHERE id = :id');
-			return $query->execute(array('gamename' => $this->gamename, 'published_year' => $this->published_year, 'publisher' => $this->publisher, 'description' => $this->description, 'id' => $this->id));
+			return $query->execute(array('gamename' => $this->gamename,
+																	'published_year' => $this->published_year,
+																	'publisher' => $this->publisher,
+																	'description' => $this->description,
+																	'id' => $this->id));
 		}
 
 		public function destroy(){

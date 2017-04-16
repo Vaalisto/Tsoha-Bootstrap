@@ -18,7 +18,7 @@
     public function validate_string($field, $string, $min, $max){
       $errors = array();
       if(!is_string($string)){
-        $errors[] = $field . "on oltava merkkijono.";
+        $errors[] = $field . " on oltava merkkijono.";
       }
       if(strlen($string) < $min && $min != 0){
         $errors[] = $field . " minimipituus on " . $min . " merkkiä.";
@@ -33,6 +33,20 @@
       $errors = array();
       if(!is_numeric($integer)){
         $errors[] = $field . " on oltava kokonaisluku.";
+      }
+      return $errors;
+    }
+
+    public function validate_range($field, $integer, $min, $max){
+      $errors = array();
+      if (!is_numeric($integer)){
+        $errors[] = $field . " on oltava kokonaisluku.";
+      }
+      if($integer < $min){
+        $errors[] = $field . " on oltava vähintään " . $min;
+      }
+      if($integer > $max){
+        $errors[] = $field . " on oltava korkeintaan " . $max;
       }
       return $errors;
     }

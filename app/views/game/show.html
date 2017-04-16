@@ -15,11 +15,21 @@
     <li><strong>Julkaisija:</strong> {{game.publisher}}</li>    
     <li><strong>Lisäyspäivä:</strong> {{game.added}}</li>
   </ul>
+
+  <!-- Arvioita koskeva tieto tähän -->
+  <p>
+    {% if average is null %}
+      Ei arvioita.
+    {% else %}
+      Arvioiden keskiarvo: {{average}}
+    {% endif %}
+  </p>
+
   <!-- Kuvaus tulee tähän -->
   <p>
     <div class="well">
       {{game.description}}
     </div>
-  </p>  
+  </p>
   
 {% endblock %}

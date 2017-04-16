@@ -11,11 +11,12 @@
 
 		public static function show($id){
 			$game = Game::find($id);
-			View::make('game/show.html', array('game' => $game));
+			$average = Game::average_score($id)
+			View::make('game/show.html', array('game' => $game, 'average' => $average));
 		}
 
 		public static function edit($id){
-			$game = Game::find($id);
+			$game = Game::find($id);			
 			View::make('game/edit.html', array('attributes' => $game));
 		}
 

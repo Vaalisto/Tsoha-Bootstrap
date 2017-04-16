@@ -24,7 +24,7 @@
 			$genres = array();
 
 			foreach($rows as $row){
-				$genres[] = new genre(array(
+				$genres[] = new Genre(array(
 					'id' => $row['id'],
 					'genrename' => $row['genrename'],					
 					'description' => $row['description']
@@ -39,7 +39,7 @@
 			$row = $query->fetch();
 
 			if($row){
-				$genre = new genre(array(
+				$genre = new Genre(array(
 					'id' => $row['id'],
 					'genrename' => $row['genrename'],					
 					'description' => $row['description']
