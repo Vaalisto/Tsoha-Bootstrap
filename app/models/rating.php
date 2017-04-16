@@ -1,6 +1,6 @@
 <?php
 	class Rating extends BaseModel{
-		public $id, $rate $account_id, $game_id;
+		public $id, $rate, $account_id, $game_id;
 
 		public function __constructor($attributes){
 			parent::__construct($attributes);
@@ -43,7 +43,7 @@
 				));
 				return $genre;
 			}
-			return null;
+			return null;			
 		}
 
 		public function save(){

@@ -17,6 +17,23 @@
 			return $errors;
 		}
 
+		public static function all(){
+			$query = DB::connection()->prepare('SELECT * FROM Account');
+			$query->execute();
+			$rows = $query->fetchAll();
+			$accounts = array();
+
+			foreach ($rows as $row){
+				$accounts[] = new Account(array(
+					'id' => $row['id'],
+					'accountname' => $row['accountname'],
+					'password' => $row['password'],
+					'is_admin' => $row['is_admin']
+				));
+			}
+			return $accounts;
+		}
+
 		public static function find($id){
 			$query = DB::connection()->prepare('SELECT * FROM Account WHERE id = :id LIMIT 1');
 			$query->execute(array('id' => $id));
@@ -55,6 +72,11 @@
 				return $account;
 			}
 			return null;
+		}
+
+		public function destroy(){
+			$query = DB::connection()->prepare('DELETE FROM Game WHERE id = :id');
+			$query->execute(array('id' => $this->id));
 		}
 
 
