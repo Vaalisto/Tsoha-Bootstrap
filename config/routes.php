@@ -81,7 +81,7 @@
   });
 
   #Rating
-  $routes->post('/rating', function()){
+  $routes->post('/rating', function(){
     RatingController::store();  
   });
 
