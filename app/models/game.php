@@ -69,7 +69,7 @@
 
 		public static function average_score($id){
 			$query = DB::connection()->prepare('SELECT AVG(rate) AS average FROM Rating WHERE game_id = :id');
-			$query->execute(array('id' => $this->id));
+			$query->execute(array('id' => $id));
 			$avg = $query->fetch();
 
 			if($avg){
