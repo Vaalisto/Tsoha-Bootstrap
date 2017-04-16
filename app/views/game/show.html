@@ -21,7 +21,7 @@
     {% if average is null %}
       Ei arvioita.
     {% else %}
-      Arvioiden keskiarvo: {{average}}
+      Arvioiden keskiarvo: {{ average|number_format(1, ',', ' ') }}
     {% endif %}
   </p>
 
