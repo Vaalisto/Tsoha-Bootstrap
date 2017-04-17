@@ -22,8 +22,14 @@
     <tbody>
       {% for account in accounts %}
       <tr>
-        <td><a href="{{base_path}}/account/{{game.id}}">{{account.accountname}}</a></td>                
-        <td>{{account.is_admin}}</td>
+        <td><a href="{{base_path}}/account/{{account.id}}">{{account.accountname}}</a></td>                
+        <td>
+		      {% if account.is_admin %}
+		  			<label class="label label-success">admin</label>
+		  		{% else %}
+		  			<label class="label label-success">käyttäjä</label>
+		  		{% endif %}
+		  	</td>
         {% if user_logged_in %}
           <th>
           <a class="btn btn-default btn-sm" href="{{base_path}}/account/{{account.id}}/edit">Muokkaa</a>
