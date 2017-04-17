@@ -80,6 +80,18 @@
     AccountController::logout();
   });
 
+  $routes->get('/account', function(){
+    AccountController::index();
+  });
+
+  $routes->post('/account', function(){
+    AccountController::store();
+  });
+
+  $routes->get('/account/:id', function(){
+    AccountController::show($id);
+  });
+
   #Rating
   $routes->post('/rating', function(){
     RatingController::store();  

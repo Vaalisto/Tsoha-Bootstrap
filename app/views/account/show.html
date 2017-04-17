@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+{% import "macros/forms.html" as forms %}
+	<h1>{{account.accountname}}</h1>
+
+
+	{% if user_logged_in %}
+  <p>
+    {{forms.destroy_button("#{base_path}/game/#{game.id}/destroy")}} 
+    {{forms.edit_button("#{base_path}/game/#{game.id}/edit")}}
+  </p>
+  {% endif %}
+
+  <ul>
+  	<li><strong>Status: </strong>
+  	{% if account.is_admin %}
+  		<label class="label label-success">admin</label>
+  	{% else %}
+  		<label class="label label-success">käyttäjä</label>
+  	{% endif %}
+  	</li>
+  </ul>
+
+
+{% endblock %}
