@@ -3,7 +3,7 @@ INSERT INTO Game (gamename, published_year, publisher, description, added) VALUE
 INSERT INTO Game (gamename, published_year, publisher, description, added) VALUES ('Scythe', 2016, 'Stonemaier Games', 'Hassu satusota', NOW());
 INSERT INTO Game (gamename, published_year, publisher, description, added) VALUES ('Space Alert', 2008, 'Rio Grande Games', 'Hektinen scifi-aiheinen yhteistyöpeli', NOW());
 INSERT INTO Account (accountname, password, is_admin) VALUES ('Ville', 'salainensana', TRUE);
-INSERT INTO Account (accountname, password, is_admin) VALUES ('Kalle', 'huonosana', FALSE);
+INSERT INTO Account (accountname, password) VALUES ('Kalle', 'huonosana');
 INSERT INTO Rating (rate, account_id, game_id) VALUES (8, 1, 2);
 INSERT INTO Genre (genrename, description) VALUES ('Kauhu', 'Alkukaintainen tunne');
 INSERT INTO Genre (genrename, description) VALUES ('Kilpailullinen', 'Kilpailullisissa peleissä on suuri osuus pelaajien välisellä paremmuudella.');
