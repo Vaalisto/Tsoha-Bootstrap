@@ -88,7 +88,7 @@
     AccountController::store();
   });
 
-  $routes->get('/account/:id', function(){
+  $routes->get('/account/:id', function($id){
     AccountController::show($id);
   });
 
