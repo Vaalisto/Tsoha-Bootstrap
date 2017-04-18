@@ -21,5 +21,22 @@
   	</li>
   </ul>
 
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Pelit</th>        
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for game in gaems %}
+      <tr>
+        <td><a href="{{base_path}}/game/{{game.id}}">{{game.gamename}}</a></td>        
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
 
 {% endblock %}

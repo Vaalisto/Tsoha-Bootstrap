@@ -12,7 +12,8 @@
 
     public static function show($id){
       $account = Account::find($id);
-      View::make('account/show.html', array('account' => $account));
+      $games = Account::rated_games($id);
+      View::make('account/show.html', array('account' => $account, 'games' => $games));
     }
 
     public static function store(){

@@ -58,6 +58,17 @@
 			$this->id = $row['id'];
 		}
 
+		public function update(){
+			$query = DB::connection()->prepare('UPDATE Account SET accountname = :accountname, 
+				password = :password, 
+				is_admin = :is_admin
+				WHERE id = :id');
+			return $query->execute(array('accountname' => $this->accountname,
+																	'password' => $this->password,
+																	'is_admin' => $this->is_admin,
+																	'id' => $this->id));
+		}
+
 		public static function authenticate($accountname, $password){
 			$query = DB::connection()->prepare('SELECT * FROM Account WHERE accountname = :accountname AND password = :password LIMIT 1');
 			$query->execute(array('accountname' => $accountname, 'password' => $password));
@@ -74,10 +85,27 @@
 			return null;
 		}
 
-		public function destroy(){
-			$query = DB::connection()->prepare('DELETE FROM Game WHERE id = :id');
-			$query->execute(array('id' => $this->id));
+		public static function rated_games($id){
+			$query = DB::connection()->prepare('SELECT * FROM Game INNER JOIN Rating ON Game.id = Rating.game_id WHERE account_id = :id');
+			$query->execute(array('id' => $id));
+			$rows = $query->fetchAll();
+			$games = array();
+			foreach($rows as $row){
+				$games[] = new Game(array(
+					'id' => $row['id'],
+					'gamename' => $row['gamename'],
+					'published_year' => $row['published_year'],
+					'publisher' => $row['publisher'],
+					'description' => $row['description'],
+					'added' => $row['added']
+				));
+			}
+			return $games;
 		}
 
+		public function destroy(){
+			$query = DB::connection()->prepare('DELETE FROM Account WHERE id = :id');
+			$query->execute(array('id' => $this->id));
+		}
 
 	}
