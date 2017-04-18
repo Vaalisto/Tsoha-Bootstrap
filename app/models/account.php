@@ -86,19 +86,16 @@
 		}
 
 		public static function rated_games($id){
-			$query = DB::connection()->prepare('SELECT * FROM Game INNER JOIN Rating ON Game.id = Rating.game_id WHERE account_id = :id');
+			$query = DB::connection()->prepare('SELECT Game.id AS id, Game.gamename AS name, Rating.rate AS rate FROM Game INNER JOIN Rating ON Game.id = Rating.game_id WHERE account_id = :id');
 			$query->execute(array('id' => $id));
 			$rows = $query->fetchAll();
 			$games = array();
 			foreach($rows as $row){
-				$games[] = new Game(array(
+				$games[] = array(
 					'id' => $row['id'],
-					'gamename' => $row['gamename'],
-					'published_year' => $row['published_year'],
-					'publisher' => $row['publisher'],
-					'description' => $row['description'],
-					'added' => $row['added']
-				));
+					'name' => $row['name'],
+					'rate'=> $row['rate']					
+				);
 			}
 			return $games;
 		}
