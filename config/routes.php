@@ -93,7 +93,7 @@
   });
 
   #Rating
-  $routes->post('/rating', function(){
+  $routes->post('/rating/new', function(){
     RatingController::store();  
   });
 
