@@ -47,7 +47,7 @@
 		}
 
 		public function save(){
-			$query = DB::connection()-prepare('INSERT INTO Rating (rate, account_id, game_id) VALUES (:rate, :account_id, :game_id)');
+			$query = DB::connection()->prepare('INSERT INTO Rating (rate, account_id, game_id) VALUES (:rate, :account_id, :game_id)');
 			$query->execute(array('rate' => $this->rate,
 														'account_id' => $this->account_id,
 														'game_id' => $this->game_id
