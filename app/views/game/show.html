@@ -31,5 +31,11 @@
       {{game.description}}
     </div>
   </p>
+
+  {% if user_logged_in %}
+  <p>
+    <a href="{{base_path}}/rating/new" class="btn btn-success">Anna arvio</a>
+  </p>
+  {% endif %}
   
 {% endblock %}

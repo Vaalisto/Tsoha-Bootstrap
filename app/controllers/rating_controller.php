@@ -7,9 +7,10 @@
 		
 		public static function store(){
 			$params = $_POST;
+			$user = $_SESSION['account'];
 			$attributes = array(
 				'rate' => $params['rate'],
-				'account_id' => $params['account_id'],
+				'account_id' => $user['account.id'],
 				'game_id' => $params['game_id']
 			);
 
@@ -22,4 +23,5 @@
 				View::make('rating/new.html', array('errors' => $errors, 'attributes' => $attributes));
 			}
 		}
+		
 	}

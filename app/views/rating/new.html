@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Anna pelille arvio</h1>
+
+  {% if errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </ul>      
+    </div>
+  {% endif %}
+
+  <form method="post" action="{{base_path}}/rating">
+
+    <div class="form-group">
+      <label>Kategoria</label>
+      <select class="form-control" name="game_id">
+      {% for category in categories %}
+        <option value="{{game.id}}">{{game.gamename}}</option>
+      {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Arvio</label>
+      <input type="text" name="rate" class="form-control" value="{{attributes.published_year}}">
+    </div>    
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+  </form>
+{% endblock %}
