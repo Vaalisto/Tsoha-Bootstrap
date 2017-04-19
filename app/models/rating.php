@@ -51,8 +51,6 @@
 			$query->execute(array('rate' => $this->rate,
 														'account_id' => $this->account_id,
 														'game_id' => $this->game_id
-														));
-			$row = $query->fetch();
-			$this->game_id = $row['game_id'];
+														));			
 		}
 	}
