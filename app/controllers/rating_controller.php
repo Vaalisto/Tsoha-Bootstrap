@@ -14,8 +14,8 @@
 				'game_id' => $params['game_id']
 			);
 
-			$ratings = new Rating($attributes);
-			$errors = $ratings->errors();
+			$rating = new Rating($attributes);
+			$errors = $rating->errors();
 			if(count($errors) == 0){
 				$rating->save();
 				Redirect::to('/game/' . $rating->game_id, array('message' => 'Arvio lisätty'));
