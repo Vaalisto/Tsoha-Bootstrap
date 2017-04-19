@@ -6,8 +6,8 @@ Yleisiä linkkejä:
 * [Linkki dokumentaatiooni](/doc/dokumentaatio.pdf)
 
 Tunnukset testausta varten:
-* Käyttäjätunnus: Ville
-* Salasana: salainensana
+* Admin-tunnus: Ville, salasana: salainensana
+* Käyttäjätunnus: Kalle, salasana: huonosana
 
 ## Työn aihe
 
