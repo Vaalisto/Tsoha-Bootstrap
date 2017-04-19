@@ -10,7 +10,7 @@
 			$params = $_POST;			
 			$attributes = array(
 				'rate' => $params['rate'],
-				'account_id' => parent::get_user_logged_in()->id,
+				'account_id' => self::get_user_logged_in()->id,
 				'game_id' => $params['game_id']
 			);
 
