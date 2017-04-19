@@ -7,11 +7,10 @@
 		}
 		
 		public static function store(){
-			$params = $_POST;
-			$user = $_SESSION['account'];
+			$params = $_POST;			
 			$attributes = array(
 				'rate' => $params['rate'],
-				'account_id' => $user['account.id'],
+				'account_id' => parent::get_user_logged_in()->id,
 				'game_id' => $params['game_id']
 			);
 
