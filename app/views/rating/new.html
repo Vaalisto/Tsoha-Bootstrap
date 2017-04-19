@@ -15,9 +15,9 @@
   <form method="post" action="{{base_path}}/rating">
 
     <div class="form-group">
-      <label>Kategoria</label>
+      <label>Peli</label>
       <select class="form-control" name="game_id">
-      {% for category in categories %}
+      {% for game in games %}
         <option value="{{game.id}}">{{game.gamename}}</option>
       {% endfor %}
       </select>

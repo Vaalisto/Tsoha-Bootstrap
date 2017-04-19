@@ -2,7 +2,8 @@
 	class RatingController extends BaseController{
 
 		public static function create(){
-			View::make('rating/new.html');
+			$games = Game::all();
+			View::make('rating/new.html', array('games' => $games));
 		}
 		
 		public static function store(){
