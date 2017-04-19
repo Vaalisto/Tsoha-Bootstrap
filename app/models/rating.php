@@ -2,7 +2,7 @@
 	class Rating extends BaseModel{
 		public $id, $rate, $account_id, $game_id;
 
-		public function __constructor($attributes){
+		public function __construct($attributes){
 			parent::__construct($attributes);
 			$this->validators = array('validate_rate');
 		}
