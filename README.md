@@ -15,4 +15,4 @@ Työn aiheena on lautapeleihin liittyvä websovellus, johon voidaan tallentaa er
 
 ## Toteutetut sivut
 
-Tällä hetkellä toimii pelien ja genrejen kohdalla listaus, yksittäisen mallin katsominen, lisäys, muokkaus ja poisto. Lisääminen, muokkaaminen ja poistaminen vaativat kirjautumisen. Uloskirjautuminen on myös toteutettu.
+Tällä hetkellä toimii pelien ja genrejen kohdalla listaus, yksittäisen mallin katsominen, lisäys, muokkaus ja poisto. Käyttäjien listaukseen ja tarkasteluun vaaditaan admin-oikeudet. Kirjautuneet käyttäjät voivat antaa pelille arvion.
