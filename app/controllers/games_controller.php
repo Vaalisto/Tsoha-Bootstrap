@@ -12,7 +12,8 @@
 		public static function show($id){
 			$game = Game::find($id);
 			$average = Game::average_score($id);
-			View::make('game/show.html', array('game' => $game, 'average' => $average));
+			$genres = Game::genres($id);
+			View::make('game/show.html', array('game' => $game, 'average' => $average, 'genres' => $genres));
 		}
 
 		public static function edit($id){

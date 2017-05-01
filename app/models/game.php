@@ -67,6 +67,22 @@
 			return null;
 		}
 
+		public static function genres($id){
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.name, Genre.description FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id WHERE GameGenre.game_id = :id');
+			$query->execute(array('id' => $id));
+			$rows = $query->fetchAll();
+			$genres = array();
+
+			foreach ($rows as $row) {
+				$genres[] = new Genre(array(
+					'id' => $row['id'],
+					'genrename' => $row['genrename'],
+					'description' => $row['description']
+				));
+			}
+			return $genres;
+		}
+
 		public static function average_score($id){
 			$query = DB::connection()->prepare('SELECT AVG(rate) AS average FROM Rating WHERE game_id = :id');
 			$query->execute(array('id' => $id));
