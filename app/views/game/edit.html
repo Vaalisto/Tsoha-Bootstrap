@@ -37,7 +37,7 @@
       <label>Genret</label>
       <select class="form-control" name="genres[]" multiple="">
         {% for genre in genres %}
-          {% if genre.game_id == game.id %}
+          {% if genre.game_id == attributes.id %}
             <option selected="" value="{{genre.id}}">{{genre.genrename}}</option>
           {% else %}
             <option value="{{genre.id}}">{{genre.genrename}}</option>

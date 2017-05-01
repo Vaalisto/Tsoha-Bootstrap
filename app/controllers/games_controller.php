@@ -58,12 +58,13 @@
 
 			$game = new Game($attributes);
 			$errors = $game->errors();
+
 			if(count($errors) == 0){
 				$game->update();
 				$game->delete_gamegenres();
 
 				foreach ($genres as $genre){
-					Genre::addToGameGenre($game->game_id, $genre->genre_id);
+					Genre::addToGameGenre($game->id, $genre->genre_id);
 				}
 
 				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
