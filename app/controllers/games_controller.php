@@ -64,7 +64,7 @@
 				$game->delete_gamegenres();
 
 				foreach ($genres as $genre){
-					Genre::addToGameGenre($game->id, $genre->genre_id);
+					Genre::addToGameGenre($game->id, $genre->id);
 				}
 
 				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
