@@ -18,7 +18,7 @@
 		}
 
 		public static function all(){
-			$query = DB::connection()->prepare('SELECT * FROM Account');
+			$query = DB::connection()->prepare('SELECT * FROM Account ORDER BY accountname');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$accounts = array();
@@ -86,7 +86,7 @@
 		}
 
 		public static function rated_games($id){
-			$query = DB::connection()->prepare('SELECT Game.id AS id, Game.gamename AS name, Rating.rate AS rate FROM Game INNER JOIN Rating ON Game.id = Rating.game_id WHERE account_id = :id');
+			$query = DB::connection()->prepare('SELECT Game.id AS id, Game.gamename AS name, Rating.rate AS rate FROM Game INNER JOIN Rating ON Game.id = Rating.game_id WHERE account_id = :id ORDER BY Game.gamename');
 			$query->execute(array('id' => $id));
 			$rows = $query->fetchAll();
 			$games = array();

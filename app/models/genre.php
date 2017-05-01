@@ -18,7 +18,7 @@
 		}
 
 		public static function all(){
-			$query = DB::connection()->prepare('SELECT * FROM Genre');
+			$query = DB::connection()->prepare('SELECT * FROM Genre ORDER BY genrename');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$genres = array();

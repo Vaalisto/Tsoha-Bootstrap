@@ -30,7 +30,7 @@
 
 
 		public static function all(){
-			$query = DB::connection()->prepare('SELECT * FROM Game');
+			$query = DB::connection()->prepare('SELECT * FROM Game ORDER BY gamename');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$games = array();
@@ -68,7 +68,7 @@
 		}
 
 		public static function show_genres($id){
-			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id WHERE GameGenre.game_id = :id');
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id WHERE GameGenre.game_id = :id ORDER BY Genre.genrename');
 			$query->execute(array('id' => $id));
 			$rows = $query->fetchAll();
 			$genres = array();	
@@ -85,7 +85,7 @@
 		}
 
 		public static function form_genres(){
-			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre LEFT JOIN GameGenre ON Genre.id = GameGenre.genre_id');
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre LEFT JOIN GameGenre ON Genre.id = GameGenre.genre_id ORDER BY Genre.genrename');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$genres = array();	
