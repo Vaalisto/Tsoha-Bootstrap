@@ -69,8 +69,8 @@
 
 		public static function show_genres($id){
 			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id WHERE GameGenre.game_id = :id');
-			$query->execute();
-			$rows = $query->fetchAll(array('id' => $id));
+			$query->execute(array('id' => $id));
+			$rows = $query->fetchAll();
 			$genres = array();	
 
 
