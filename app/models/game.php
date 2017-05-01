@@ -104,7 +104,7 @@
 
 		public static function delete_gamegenres(){
 			$query = DB::connection()->prepare('DELETE FROM GameGenre WHERE GameGenre.game_id = :id');
-			$query->execute(array('id' => $this->game_id));			
+			$query->execute(array('id' => $this->id));
 		}
 
 		public static function average_score($id){
