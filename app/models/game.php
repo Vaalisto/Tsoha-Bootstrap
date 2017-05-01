@@ -102,7 +102,7 @@
 			return $genres;
 		}
 
-		public static function delete_gamegenres($id){
+		public static function delete_gamegenres(){
 			$query = DB::connection()->prepare('DELETE FROM GameGenre WHERE GameGenre.game_id = :id');
 			$query->execute(array('id' => $this->game_id));			
 		}
