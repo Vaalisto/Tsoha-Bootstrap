@@ -54,7 +54,7 @@
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
 				'description' => $params['description'],
-				'gernes' => array()
+				'genres' => array()
 			);
 
 			$game = new Game($attributes);
@@ -66,7 +66,7 @@
 
 				foreach ($genres as $genre){
 					$attributes['genres'][] = $genre;
-					Genre::addToGameGenre($game->id, $genre->id);
+					Genre::addToGameGenre($game->id, $genre);
 				}
 
 				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
