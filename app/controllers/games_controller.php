@@ -53,7 +53,8 @@
 				'gamename' => $params['gamename'],
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
-				'description' => $params['description']
+				'description' => $params['description'],
+				'gernes' => array()
 			);
 
 			$game = new Game($attributes);
@@ -64,6 +65,7 @@
 				$game->delete_gamegenres();
 
 				foreach ($genres as $genre){
+					$attributes['genres'][] = $genre;
 					Genre::addToGameGenre($game->id, $genre->id);
 				}
 
