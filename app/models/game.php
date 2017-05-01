@@ -67,9 +67,26 @@
 			return null;
 		}
 
-		public static function genres($id){
+		public static function show_genres($id){
 			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id WHERE GameGenre.game_id = :id');
-			$query->execute(array('id' => $id));
+			$query->execute();
+			$rows = $query->fetchAll(array('id' => $id));
+			$genres = array();	
+
+
+			foreach ($rows as $row) {
+				$genres[] = new Genre(array(
+					'id' => $row['id'],
+					'genrename' => $row['genrename'],
+					'description' => $row['description']					
+				));
+			}
+			return $genres;
+		}
+
+		public static function form_genres(){
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id');
+			$query->execute();
 			$rows = $query->fetchAll();
 			$genres = array();	
 
@@ -78,10 +95,16 @@
 				$genres[] = new Genre(array(
 					'id' => $row['id'],
 					'genrename' => $row['genrename'],
-					'description' => $row['description']
+					'description' => $row['description'],
+					'game_id' => $row['game_id']
 				));
 			}
 			return $genres;
+		}
+
+		public static function delete_gamegenres($id){
+			$query = DB::connection()->prepare('DELETE FROM GameGenre WHERE GameGenre.game_id = :id');
+			$query->execute(array('id' => $this->game_id));			
 		}
 
 		public static function average_score($id){

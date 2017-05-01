@@ -1,6 +1,6 @@
 <?php
 	class Genre extends BaseModel{
-		public $id, $genrename, $description;
+		public $id, $genrename, $description, $game_id;
 
 		public function __construct($attributes){
 			parent::__construct($attributes);

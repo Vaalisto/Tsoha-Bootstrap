@@ -12,13 +12,14 @@
 		public static function show($id){
 			$game = Game::find($id);
 			$average = Game::average_score($id);
-			$genres = Game::genres($id);
+			$genres = Game::show_genres($id);
 			View::make('game/show.html', array('game' => $game, 'average' => $average, 'genres' => $genres));
 		}
 
 		public static function edit($id){
-			$game = Game::find($id);			
-			View::make('game/edit.html', array('attributes' => $game));
+			$game = Game::find($id);
+			$genres = Game::form_genres();
+			View::make('game/edit.html', array('attributes' => $game, 'genres' => $genres));
 		}
 
 		public static function store() {
@@ -45,6 +46,7 @@
 
 		public static function update($id){
 			$params = $_POST;
+			$genres = $params['genres'];
 
 			$attributes = array(
 				'id' => $id,
@@ -58,6 +60,12 @@
 			$errors = $game->errors();
 			if(count($errors) == 0){
 				$game->update();
+				$game->delete_gamegenres();
+
+				foreach ($genres as $genre){
+					Genre::addToGameGenre($game->game_id, $genre->genre_id);
+				}
+
 				Redirect::to('/game/' . $game->id, array('message' => 'Peliä muokattu onnistuneesti.'));
 			}else{
 				View::make('game/edit.html', array('errors' => $errors, 'attributes' => $attributes));
