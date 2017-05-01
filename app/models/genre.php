@@ -49,6 +49,11 @@
 			return null;
 		}
 
+		public static function addToGameGenre($game_id, $genre_id){
+			$query = DB::connection()->prepare('INSERT INTO GameGenre (game_id, genre_id) VALUES (:game_id, :genre_id)');
+			$query->execute(array('game_id' => $this->game_id, 'genre_id' => $this->genre_id));
+		}
+
 		public function save(){
 			$query = DB::connection()->prepare('INSERT INTO Genre (genrename, description) VALUES (:genrename, :description) RETURNING id');
 			$query->execute(array('genrename' => $this->genrename, 'description' => $this->description));
