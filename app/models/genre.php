@@ -51,7 +51,7 @@
 
 		public static function addToGameGenre($game_id, $genre_id){
 			$query = DB::connection()->prepare('INSERT INTO GameGenre (game_id, genre_id) VALUES (:game_id, :genre_id)');
-			$query->execute(array('game_id' => $this->game_id, 'genre_id' => $this->genre_id));
+			$query->execute(array('game_id' => $game_id, 'genre_id' => $genre_id));
 		}
 
 		public function save(){
