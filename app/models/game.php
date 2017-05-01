@@ -85,7 +85,7 @@
 		}
 
 		public static function form_genres(){
-			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre INNER JOIN GameGenre ON Genre.id = GameGenre.genre_id');
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre LEFT JOIN GameGenre ON Genre.id = GameGenre.genre_id');
 			$query->execute();
 			$rows = $query->fetchAll();
 			$genres = array();	
