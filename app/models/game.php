@@ -84,9 +84,9 @@
 			return $genres;
 		}
 
-		public static function form_genres(){
-			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre LEFT JOIN GameGenre ON Genre.id = GameGenre.genre_id ORDER BY Genre.genrename');
-			$query->execute();
+		public static function form_genres($id){
+			$query = DB::connection()->prepare('SELECT Genre.id, Genre.genrename, Genre.description, GameGenre.game_id FROM Genre LEFT JOIN GameGenre ON Genre.id = GameGenre.genre_id AND GameGenre.game_id = :id ORDER BY Genre.genrename');
+			$query->execute(array('id' => $id));
 			$rows = $query->fetchAll();
 			$genres = array();	
 

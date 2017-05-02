@@ -18,7 +18,7 @@
 
 		public static function edit($id){
 			$game = Game::find($id);
-			$genres = Game::form_genres();
+			$genres = Game::form_genres($id);
 			View::make('game/edit.html', array('attributes' => $game, 'genres' => $genres));
 		}
 
