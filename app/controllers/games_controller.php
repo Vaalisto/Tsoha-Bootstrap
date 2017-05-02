@@ -6,7 +6,8 @@
 		}
 
 		public static function create(){
-			View::make('game/new.html');
+			$genres = Genre::all();
+			View::make('game/new.html', array('genres' => $genres));
 		}
 
 		public static function show($id){
@@ -24,11 +25,14 @@
 
 		public static function store() {
 			$params = $_POST;
+			$genres = $params['genres'];
+
 			$attributes = array(
 				'gamename' => $params['gamename'],
 				'published_year' => $params['published_year'],
 				'publisher' => $params['publisher'],
-				'description' => $params['description']
+				'description' => $params['description'],
+				'genres' => array()
 			);
 
 
@@ -36,6 +40,11 @@
 			$errors = $game->errors();
 			if(count($errors) == 0){
 				$game->save();
+
+				foreach ($genres as $genre){
+					$attributes['genres'][] = $genre;
+					Genre::addToGameGenre($game->id, $genre);
+				}
 
 				Redirect::to('/game/' . $game->id, array('message' => 'Peli on lisätty'));
 			}else{
