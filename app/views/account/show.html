@@ -6,8 +6,8 @@
 
 	{% if user_logged_in %}
   <p>
-    {{forms.destroy_button("#{base_path}/game/#{game.id}/destroy")}} 
-    {{forms.edit_button("#{base_path}/game/#{game.id}/edit")}}
+    {{forms.destroy_button("#{base_path}/account/#{account.id}/destroy")}} 
+    {{forms.edit_button("#{base_path}/account/#{account.id}/edit")}}
   </p>
   {% endif %}
 
