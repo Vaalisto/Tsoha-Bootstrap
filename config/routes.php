@@ -88,9 +88,27 @@
     AccountController::store();
   });
 
+  $routes->get('/account/new', function(){
+    AccountController::create();
+  });
+
   $routes->get('/account/:id', function($id){
     AccountController::show($id);
   });
+
+  $routes->get('/account/:id/edit', function($id){
+    AccountController::edit($id);
+  });
+
+  $routes->post('/account/:id/edit', function($id){
+    AccountController::update($id);
+  });
+
+  $routes->post('/account/:id/destroy', function($id){
+    AccountController::destroy($id);
+  });
+
+
 
   #Rating
   $routes->post('/rating/new', function(){
