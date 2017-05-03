@@ -81,4 +81,11 @@
       $_SESSION['account'] = null;
       Redirect::to('/', array('message' => 'Olet kirjautunut ulos!'));
     }
+
+    public static function destroy($id){
+      $account = new Account(array('id' => $id));
+      $account->destroy();
+
+      Redirect::to('/account', array('message' => 'Käyttäjätunnus on poistettu onnistuneesti'));
+    }
   }
