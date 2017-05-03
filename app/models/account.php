@@ -51,7 +51,7 @@
 			return null;
 		}
 
-		public static function save(){
+		public function save(){
 			$query = DB::connection()->prepare('INSERT INTO Account (accountname, password, is_admin) VALUES (:accountname, :password, :is_admin) RETURNING id');
 			$query->execute(array('accountname' => $this->accountname, 'password' => $this->password, 'is_admin' => $this->is_admin));
 			$row = $query->fetch();
