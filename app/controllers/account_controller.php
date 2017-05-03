@@ -18,7 +18,7 @@
 
     public static function edit($id){
       $account = Account::find($id);
-      View::make('account/edit.html', array('account' => $account));
+      View::make('account/edit.html', array('attributes' => $account));
     }
 
     public static function store(){

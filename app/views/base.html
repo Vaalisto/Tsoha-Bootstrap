@@ -45,10 +45,10 @@
               <li><a href="{{base_path}}/account">Käyttäjät</a></li>
             {% endif %}
           </ul>
-          {% if user_logged_in %}
-          <ul class="nav navbar-nav navbar-right">          
-            <li><a href="{{base_path}}//logout">Kirjaudu ulos</a></li>
-          </ul>
+          {% if user_logged_in %}          
+            <ul class="nav navbar-nav navbar-right">            
+              <li><a href="{{base_path}}//logout">Kirjaudu ulos</a></li>
+            </ul>
           {% else %}
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{{base_path}}/login">Kirjaudu sisään</a></li>
