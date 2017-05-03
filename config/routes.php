@@ -1,5 +1,13 @@
 <?php
 
+  function check_logged_in(){
+    BaseController::check_logged_in();
+  }
+
+  function is_admin(){
+    BaseController::is_admin();
+  }
+
   $routes->get('/', function() {
     GameController::index();
   });
