@@ -14,6 +14,27 @@
     <div class="well">
       {{genre.description}}
     </div>
-  </p>  
+  </p>
+
+  {% if games is not empty %} 
+    <h4>Genreen kuuluvat pelit</h4>
+
+    <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Peli</th>          
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for game in games %}
+      <tr>
+        <td><a href="{{base_path}}/game/{{game.id}}">{{game.gamename}}</a></td>              
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% endif %}
   
 {% endblock %}

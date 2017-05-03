@@ -11,7 +11,7 @@
     </div>
   {% endif %}
 
-  <form method="post" action="{{base_path}}/account">
+  <form method="post" action="{{base_path}}/account/{{attributes.id}}/edit">
   	<div class="form-group">
   		<label>Käyttäjätunnus</label>
   		<input type="text" name="accountname" class="form-control" value="{{attributes.accountname}}">
@@ -24,9 +24,14 @@
 
   	<div class="form-group">
       <label>Onko admin</label>
-      <select class="form-control" name="is_admin">    
-        <option value="false">Ei</option>
-        <option value="true">Kyllä</option>  
+      <select class="form-control" name="is_admin">
+        {% if attributes.is_admin %}
+          <option value="false">Kyllä</option>
+          <option value="true">Ei</option> 
+        {% else %}
+          <option value="false">Ei</option>
+          <option value="true">Kyllä</option> 
+        {% endif %}         
       </select>
     </div>
 

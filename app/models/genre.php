@@ -54,6 +54,25 @@
 			$query->execute(array('game_id' => $game_id, 'genre_id' => $genre_id));
 		}
 
+		public static function gamesInGenre($id){
+			$query = DB::connection()->prepare('SELECT Game.id, Game.gamename, Game.published_year, Game.publisher, Game.description, Game.added FROM Game INNER JOIN GameGenre ON Game.id = GameGenre.game_id WHERE GameGenre.genre_id = :id ORDER BY Game.gamename');
+			$query->execute(array('id' => $id));
+			$rows = $query->fetchAll();
+			$games = array();
+
+			foreach($rows as $row){
+				$games[] = new Game(array(
+					'id' => $row['id'],
+					'gamename' => $row['gamename'],
+					'published_year' => $row['published_year'],
+					'publisher' => $row['publisher'],
+					'description' => $row['description'],
+					'added' => $row['added']
+				));
+			}
+			return $games;
+		}
+
 		public function save(){
 			$query = DB::connection()->prepare('INSERT INTO Genre (genrename, description) VALUES (:genrename, :description) RETURNING id');
 			$query->execute(array('genrename' => $this->genrename, 'description' => $this->description));

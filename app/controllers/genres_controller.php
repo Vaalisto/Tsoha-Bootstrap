@@ -11,7 +11,8 @@
 
 		public static function show($id){
 			$genre = Genre::find($id);
-			View::make('genre/show.html', array('genre' => $genre));
+			$games = Genre::gamesInGenre($id);
+			View::make('genre/show.html', array('genre' => $genre, 'games' => $games));
 		}
 
 		public static function edit($id){
