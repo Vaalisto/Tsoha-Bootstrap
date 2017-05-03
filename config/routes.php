@@ -13,11 +13,11 @@
     GameController::index();
   });		
 
-  $routes->post('/game', function(){
+  $routes->post('/game', 'check_logged_in', function(){
     GameController::store();
   });
 
-  $routes->get('/game/new', function(){
+  $routes->get('/game/new', 'check_logged_in', function(){
     GameController::create();
   });
 
@@ -25,15 +25,15 @@
     GameController::show($id);
   });
 
-  $routes->get('/game/:id/edit', function($id){
+  $routes->get('/game/:id/edit', 'check_logged_in', function($id){
     GameController::edit($id);
   });
 
-  $routes->post('/game/:id/edit', function($id){
+  $routes->post('/game/:id/edit', 'check_logged_in', function($id){
     GameController::update($id);
   });
 
-  $routes->post('/game/:id/destroy', function($id){
+  $routes->post('/game/:id/destroy', 'check_logged_in', function($id){
     GameController::destroy($id);
   });
 
@@ -43,11 +43,11 @@
     GenreController::index();
   });   
 
-  $routes->post('/genre', function(){
+  $routes->post('/genre', 'check_logged_in', function(){
     GenreController::store();
   });
 
-  $routes->get('/genre/new', function(){
+  $routes->get('/genre/new', 'check_logged_in', function(){
     GenreController::create();
   });
 
@@ -55,15 +55,15 @@
     GenreController::show($id);
   });
 
-  $routes->get('/genre/:id/edit', function($id){
+  $routes->get('/genre/:id/edit', 'check_logged_in', function($id){
     GenreController::edit($id);
   });
 
-  $routes->post('/genre/:id/edit', function($id){
+  $routes->post('/genre/:id/edit', 'check_logged_in', function($id){
     GenreController::update($id);
   });
 
-  $routes->post('/genre/:id/destroy', function($id){
+  $routes->post('/genre/:id/destroy', 'check_logged_in', function($id){
     GenreController::destroy($id);
   });
 
@@ -80,41 +80,41 @@
     AccountController::logout();
   });
 
-  $routes->get('/account', function(){
+  $routes->get('/account', 'is_admin', function(){
     AccountController::index();
   });
 
-  $routes->post('/account', function(){
+  $routes->post('/account', 'is_admin', function(){
     AccountController::store();
   });
 
-  $routes->get('/account/new', function(){
+  $routes->get('/account/new', 'is_admin', function(){
     AccountController::create();
   });
 
-  $routes->get('/account/:id', function($id){
+  $routes->get('/account/:id', 'is_admin', function($id){
     AccountController::show($id);
   });
 
-  $routes->get('/account/:id/edit', function($id){
+  $routes->get('/account/:id/edit', 'is_admin', function($id){
     AccountController::edit($id);
   });
 
-  $routes->post('/account/:id/edit', function($id){
+  $routes->post('/account/:id/edit', 'is_admin', function($id){
     AccountController::update($id);
   });
 
-  $routes->post('/account/:id/destroy', function($id){
+  $routes->post('/account/:id/destroy', 'is_admin', function($id){
     AccountController::destroy($id);
   });
 
 
 
   #Rating
-  $routes->post('/rating/new', function(){
+  $routes->post('/rating/new', 'check_logged_in', function(){
     RatingController::store();  
   });
 
-  $routes->get('/rating/new', function(){
+  $routes->get('/rating/new', 'check_logged_in', function(){
     RatingController::create();
   });

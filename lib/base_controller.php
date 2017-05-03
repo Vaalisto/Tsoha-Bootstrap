@@ -18,4 +18,11 @@
       }
     }
 
+    public static function is_admin(){
+      if (!isset($_SESSION['user'])){
+        $account = self::get_user_logged_in();
+        return $account->is_admin;
+      }
+      return false;      
+    }
   }
